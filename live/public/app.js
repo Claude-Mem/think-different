@@ -44,7 +44,7 @@
 
   ui.sessionName.textContent = sessionId;
   ui.sessionInput.value = sessionId;
-  document.title = `Think out loud · ${sessionId}`;
+  document.title = `Think Different · ${sessionId}`;
 
   function connectStatus(state, message) {
     ui.connection.dataset.state = state;

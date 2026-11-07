@@ -11,7 +11,7 @@ Research checked October 6, 2026. This history separates documented changes from
 | Product display | Whether an app shows, collapses, or omits the returned text |
 | Collaborative working notes | Explanations deliberately written in the conversation so a person can assess and steer the work |
 
-`think-out-loud` works at the fourth layer. Hiding a display does not by itself establish that the model reasoned less. A skill cannot guarantee access to private internals.
+`think-different` works at the fourth layer. Hiding a display does not by itself establish that the model reasoned less. A skill cannot guarantee access to private internals.
 
 ## Timeline
 
@@ -52,6 +52,6 @@ Other possible contributors are installation friction, registry discoverability,
 
 We found no adoption time series proving that Sequential Thinking was broadly forgotten, and no evidence that labs embedded this specific MCP server into their models. Related ideas, including intermediate steps and exploring alternatives, predate MCP. [Chain-of-Thought paper](https://arxiv.org/abs/2201.11903), [Tree of Thoughts paper](https://arxiv.org/abs/2305.10601)
 
-## What this means for think-out-loud
+## What this means for think-different
 
 The purpose is an explicit collaboration surface: useful working notes before decisions are complete. A person can review assumptions, challenge evidence, correct the direction, and see the resulting revision. That purpose remains valuable alongside native reasoning, regardless of whether a provider returns thinking summaries.

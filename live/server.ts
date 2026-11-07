@@ -386,7 +386,7 @@ export function startServer(options: {
 if (import.meta.main) {
   try {
     const app = startServer();
-    console.log(`Think out loud is live at ${app.url}`);
+    console.log(`Think Different is live at ${app.url}`);
     const close = async () => { await app.stop(); process.exit(0); };
     process.once("SIGINT", close);
     process.once("SIGTERM", close);

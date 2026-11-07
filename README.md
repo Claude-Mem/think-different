@@ -1,8 +1,8 @@
-# think-out-loud
+# think-different
 
 **Thinking should be a conversation you can join.**
 
-A skill for active thinking out loud: visible assumptions, evidence, uncertainty, alternatives, decisions, and revisions while the work happens. Read it, question it, interrupt it, and steer it.
+A skill for thinking differently: visible assumptions, evidence, uncertainty, alternatives, decisions, and revisions while the work happens. Read it, question it, interrupt it, and steer it.
 
 Inspired by the [Sequential Thinking MCP](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking), and by the frustration of losing useful visibility when a coding assistant hides its thinking display.
 
@@ -16,25 +16,25 @@ Inspired by the [Sequential Thinking MCP](https://github.com/modelcontextprotoco
 
 **Assistant:** Fresh-session failures stop before the network request; the captured trace points to client validation. I’ll check that validation path and test the reported inputs.
 
-The useful part is the opportunity to change the investigation before the answer is finished. See the [worked example](think-out-loud/references/example-session.md).
+The useful part is the opportunity to change the investigation before the answer is finished. See the [worked example](think-different/references/example-session.md).
 
 ## Install
 
 ```bash
-npx skills add https://github.com/claude-mem/think-out-loud --skill think-out-loud
+npx skills add https://github.com/claude-mem/think-different --skill think-different
 ```
 
 Or install manually for Claude Code:
 
 ```bash
-git clone https://github.com/claude-mem/think-out-loud.git
+git clone https://github.com/claude-mem/think-different.git
 mkdir -p ~/.claude/skills
-cp -R think-out-loud/think-out-loud ~/.claude/skills/
+cp -R think-different/think-different ~/.claude/skills/
 ```
 
 For Codex, copy the same skill folder into `~/.codex/skills/`.
 
-Ask: **“Use think-out-loud while investigating this. Show me the assumptions and decision points so I can steer.”** In Claude Code you can invoke `/think-out-loud`; in Codex, use `$think-out-loud`.
+Ask: **“Use think-different while investigating this. Show me the assumptions and decision points so I can steer.”** In Claude Code you can invoke `/think-different`; in Codex, use `$think-different`.
 
 The skill instructions work without an MCP server or a runtime. The optional notebook script requires [Bun](https://bun.sh/).
 
@@ -73,13 +73,13 @@ Send working notes from the skill:
 
 ```bash
 mkdir -p work
-bun think-out-loud/scripts/think.ts --state work/task.json --live http://127.0.0.1:4317 --session main --thought "The failing requests follow token refresh. I still need to compare successful requests before treating refresh as the cause." --thoughtNumber 1 --totalThoughts 3 --nextThoughtNeeded true
+bun think-different/scripts/think.ts --state work/task.json --live http://127.0.0.1:4317 --session main --thought "The failing requests follow token refresh. I still need to compare successful requests before treating refresh as the cause." --thoughtNumber 1 --totalThoughts 3 --nextThoughtNeeded true
 ```
 
 Click **Add your thought** on a note to reply to that specific note. The reply enters the producing agent's inbox unchanged. The agent reads pending replies before publishing its next note, or explicitly checks between actions:
 
 ```bash
-bun think-out-loud/scripts/think.ts --live http://127.0.0.1:4317 --session main --feedback
+bun think-different/scripts/think.ts --live http://127.0.0.1:4317 --session main --feedback
 ```
 
 A reply is shown as queued until the agent reads it. Reading means delivered, not that the agent has completed the requested change. Delivery happens at checkpoints; this app does not inject messages into an arbitrary running chat. The skill tells the agent to check and incorporate feedback during the task.
@@ -94,14 +94,14 @@ The inherited `think.ts` script keeps a JSON history of public working notes. Us
 
 ```bash
 mkdir -p work
-bun think-out-loud/scripts/think.ts --state work/investigation.json --reset
-bun think-out-loud/scripts/think.ts --state work/investigation.json --thought "Fresh sessions fail before the request reaches the server; checking client validation next." --thoughtNumber 1 --totalThoughts 3 --nextThoughtNeeded true
-bun think-out-loud/scripts/think.ts --state work/investigation.json --status
+bun think-different/scripts/think.ts --state work/investigation.json --reset
+bun think-different/scripts/think.ts --state work/investigation.json --thought "Fresh sessions fail before the request reaches the server; checking client validation next." --thoughtNumber 1 --totalThoughts 3 --nextThoughtNeeded true
+bun think-different/scripts/think.ts --state work/investigation.json --status
 ```
 
-The notebook retains the original flags for revisions, branches, and extending the estimate. See [SKILL.md](think-out-loud/SKILL.md) for the commands. Tool output can be collapsed by the host, so the skill also puts useful notes directly in the chat.
+The notebook retains the original flags for revisions, branches, and extending the estimate. See [SKILL.md](think-different/SKILL.md) for the commands. Tool output can be collapsed by the host, so the skill also puts useful notes directly in the chat.
 
-| Capability | Sequential Thinking MCP | think-out-loud |
+| Capability | Sequential Thinking MCP | think-different |
 |---|---|---|
 | Interaction | Model submits structured tool entries | Assistant publishes working notes for user review and steering |
 | Revisions and branches | Tool fields record them | Conversation can show them; optional script records them |
@@ -111,7 +111,7 @@ The notebook retains the original flags for revisions, branches, and extending t
 
 ## Existing users
 
-Install `think-out-loud` using the new URL. If you manually installed the old `sequential-thinking` folder, remove that copy once you have moved any notebook you want to keep; leaving both installed can create duplicate guidance. Existing script flags and the default `.think_state.json` behavior remain supported.
+Install `think-different` using the new URL. If you manually installed the old `sequential-thinking` folder, remove that copy once you have moved any notebook you want to keep; leaving both installed can create duplicate guidance. Existing script flags and the default `.think_state.json` behavior remain supported.
 
 ## License
 
